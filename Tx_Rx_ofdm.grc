@@ -369,7 +369,7 @@ blocks:
     alias: ''
     append: 'False'
     comment: ''
-    file: /home/ahmadshokair/test_ofdm/data_tx_symbols
+    file: data_tx_symbols
     type: complex
     unbuffered: 'False'
     vlen: '1'
