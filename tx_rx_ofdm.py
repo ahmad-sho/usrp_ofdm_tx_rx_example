@@ -315,7 +315,7 @@ class tx_rx_ofdm(gr.top_block, Qt.QWidget):
         self.blocks_file_sink_0_0_0_0_0_0.set_unbuffered(False)
         self.blocks_file_sink_0_0_0_0_0 = blocks.file_sink(gr.sizeof_gr_complex*1, 'tx_frames', False)
         self.blocks_file_sink_0_0_0_0_0.set_unbuffered(False)
-        self.blocks_file_sink_0_0_0_0 = blocks.file_sink(gr.sizeof_gr_complex*1, '/home/ahmadshokair/test_ofdm/data_tx_symbols', False)
+        self.blocks_file_sink_0_0_0_0 = blocks.file_sink(gr.sizeof_gr_complex*1, 'data_tx_symbols', False)
         self.blocks_file_sink_0_0_0_0.set_unbuffered(False)
         self.blocks_file_sink_0_0_0 = blocks.file_sink(gr.sizeof_char*1, 'data_tx_packed', False)
         self.blocks_file_sink_0_0_0.set_unbuffered(False)
