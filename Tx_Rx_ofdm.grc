@@ -42,7 +42,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1320, 76.0]
+    coordinate: [1336, 76.0]
     rotation: 0
     state: enabled
 - name: fft_len
@@ -79,7 +79,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [952, 76.0]
+    coordinate: [968, 76.0]
     rotation: 0
     state: enabled
 - name: header_formatter
@@ -142,7 +142,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1056, 12.0]
+    coordinate: [176, 140.0]
     rotation: 0
     state: enabled
 - name: packet_length_tag_key
@@ -167,14 +167,14 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1136, 76.0]
+    coordinate: [1152, 76.0]
     rotation: 0
     state: enabled
 - name: payload_mod
   id: variable
   parameters:
     comment: ''
-    value: digital.constellation_qpsk()
+    value: digital.constellation_16qam()
   states:
     bus_sink: false
     bus_source: false
@@ -191,7 +191,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [720, 76.0]
+    coordinate: [728, 76.0]
     rotation: 0
     state: enabled
 - name: pilot_symbols
@@ -203,14 +203,14 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [840, 76.0]
+    coordinate: [856, 76.0]
     rotation: 0
     state: enabled
 - name: samp_rate
   id: variable
   parameters:
     comment: ''
-    value: '1000000'
+    value: '2000000'
   states:
     bus_sink: false
     bus_source: false
@@ -232,7 +232,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [272, 76.0]
+    coordinate: [280, 76.0]
     rotation: 0
     state: enabled
 - name: sync_word2
@@ -250,7 +250,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [416, 76.0]
+    coordinate: [424, 76.0]
     rotation: 0
     state: enabled
 - name: analog_frequency_modulator_fc_0
@@ -289,6 +289,23 @@ blocks:
     coordinate: [16, 252.0]
     rotation: 0
     state: enabled
+- name: blocks_char_to_float_0
+  id: blocks_char_to_float
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    scale: '1'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [912, 1732.0]
+    rotation: 0
+    state: true
 - name: blocks_delay_0
   id: blocks_delay
   parameters:
@@ -414,6 +431,24 @@ blocks:
     bus_source: false
     bus_structure: null
     coordinate: [1976, 732.0]
+    rotation: 0
+    state: true
+- name: blocks_file_sink_0_0_0_0_0_0_0
+  id: blocks_file_sink
+  parameters:
+    affinity: ''
+    alias: ''
+    append: 'False'
+    comment: ''
+    file: rx_frames_time
+    type: complex
+    unbuffered: 'False'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1672, 1164.0]
     rotation: 0
     state: true
 - name: blocks_file_sink_0_0_1
@@ -600,7 +635,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [216, 268.0]
+    coordinate: [224, 268.0]
     rotation: 0
     state: enabled
 - name: blocks_tag_debug_1
@@ -677,9 +712,27 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1736, 628.0]
-    rotation: 0
+    coordinate: [1688, 772.0]
+    rotation: 180
     state: disabled
+- name: blocks_vector_to_stream_0
+  id: blocks_vector_to_stream
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    num_items: '64'
+    type: complex
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1472, 1184.0]
+    rotation: 0
+    state: true
 - name: channels_channel_model_0
   id: channels_channel_model
   parameters:
@@ -693,12 +746,12 @@ blocks:
     minoutbuf: '0'
     noise_voltage: '0.0'
     seed: '0'
-    taps: 1.0 + 1.0j
+    taps: 0.7+ 0.7j
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [992, 756.0]
+    coordinate: [1008, 828.0]
     rotation: 180
     state: disabled
 - name: digital_chunks_to_symbols_xx_0
@@ -788,7 +841,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [648, 1556.0]
+    coordinate: [664, 1556.0]
     rotation: 0
     state: enabled
 - name: digital_crc32_bb_1
@@ -806,7 +859,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [440, 260.0]
+    coordinate: [448, 260.0]
     rotation: 0
     state: enabled
 - name: digital_header_payload_demux_0
@@ -1218,8 +1271,8 @@ blocks:
     alpha7: '1.0'
     alpha8: '1.0'
     alpha9: '1.0'
-    autoscale: 'False'
-    average: '1.0'
+    autoscale: 'True'
+    average: '0.05'
     axislabels: 'True'
     bw: samp_rate
     color1: '"blue"'
@@ -1233,7 +1286,7 @@ blocks:
     color8: '"dark red"'
     color9: '"dark green"'
     comment: ''
-    ctrlpanel: 'False'
+    ctrlpanel: 'True'
     fc: '0'
     fftsize: '1024'
     freqhalf: 'True'
@@ -1364,6 +1417,103 @@ blocks:
     bus_structure: null
     coordinate: [1976, 652.0]
     rotation: 0
+    state: enabled
+- name: qtgui_time_sink_x_0
+  id: qtgui_time_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    autoscale: 'True'
+    axislabels: 'True'
+    color1: blue
+    color10: dark blue
+    color2: red
+    color3: green
+    color4: black
+    color5: cyan
+    color6: magenta
+    color7: yellow
+    color8: dark red
+    color9: dark green
+    comment: ''
+    ctrlpanel: 'True'
+    entags: 'True'
+    grid: 'True'
+    gui_hint: ''
+    label1: Signal 1
+    label10: Signal 10
+    label2: Signal 2
+    label3: Signal 3
+    label4: Signal 4
+    label5: Signal 5
+    label6: Signal 6
+    label7: Signal 7
+    label8: Signal 8
+    label9: Signal 9
+    legend: 'True'
+    marker1: '-1'
+    marker10: '-1'
+    marker2: '-1'
+    marker3: '-1'
+    marker4: '-1'
+    marker5: '-1'
+    marker6: '-1'
+    marker7: '-1'
+    marker8: '-1'
+    marker9: '-1'
+    name: '""'
+    nconnections: '1'
+    size: '1024'
+    srate: samp_rate
+    stemplot: 'False'
+    style1: '1'
+    style10: '1'
+    style2: '1'
+    style3: '1'
+    style4: '1'
+    style5: '1'
+    style6: '1'
+    style7: '1'
+    style8: '1'
+    style9: '1'
+    tr_chan: '0'
+    tr_delay: '0'
+    tr_level: '0.0'
+    tr_mode: qtgui.TRIG_MODE_FREE
+    tr_slope: qtgui.TRIG_SLOPE_POS
+    tr_tag: '""'
+    type: float
+    update_time: '0.10'
+    width1: '1'
+    width10: '1'
+    width2: '1'
+    width3: '1'
+    width4: '1'
+    width5: '1'
+    width6: '1'
+    width7: '1'
+    width8: '1'
+    width9: '1'
+    ylabel: Amplitude
+    ymax: '1'
+    ymin: '-1'
+    yunit: '""'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1072, 1716.0]
+    rotation: 0
     state: true
 - name: uhd_usrp_sink_1
   id: uhd_usrp_sink
@@ -1467,7 +1617,7 @@ blocks:
     center_freq8: '0'
     center_freq9: '0'
     clock_rate: 0e0
-    clock_source0: ''
+    clock_source0: internal
     clock_source1: ''
     clock_source2: ''
     clock_source3: ''
@@ -1476,8 +1626,8 @@ blocks:
     clock_source6: ''
     clock_source7: ''
     comment: ''
-    dev_addr: addr=192.168.10.3
-    dev_args: ''
+    dev_addr: '"addr=192.168.10.3"'
+    dev_args: '"send_frame_size=8192,recv_frame_size=8192"'
     gain0: '0'
     gain1: '0'
     gain10: '0'
@@ -1744,7 +1894,7 @@ blocks:
     center_freq8: '0'
     center_freq9: '0'
     clock_rate: 0e0
-    clock_source0: ''
+    clock_source0: internal
     clock_source1: ''
     clock_source2: ''
     clock_source3: ''
@@ -1817,9 +1967,9 @@ blocks:
     dc_offs_enb7: default
     dc_offs_enb8: default
     dc_offs_enb9: default
-    dev_addr: addr=192.168.10.2
-    dev_args: ''
-    gain0: '0'
+    dev_addr: '"addr=192.168.10.2"'
+    dev_args: '"send_frame_size=8192,recv_frame_size=8192"'
+    gain0: '10'
     gain1: '0'
     gain10: '0'
     gain11: '0'
@@ -2213,9 +2363,11 @@ connections:
 - [analog_frequency_modulator_fc_0, '0', blocks_multiply_xx_0, '0']
 - [analog_random_source_x_0, '0', blocks_file_sink_0_0, '0']
 - [analog_random_source_x_0, '0', blocks_stream_to_tagged_stream_0, '0']
+- [blocks_char_to_float_0, '0', qtgui_time_sink_x_0, '0']
 - [blocks_delay_0, '0', blocks_multiply_xx_0, '1']
 - [blocks_multiply_const_vxx_0, '0', blocks_tag_gate_0, '0']
 - [blocks_multiply_xx_0, '0', digital_header_payload_demux_0, '0']
+- [blocks_repack_bits_bb_0, '0', blocks_char_to_float_0, '0']
 - [blocks_repack_bits_bb_0, '0', blocks_file_sink_0_1_1, '0']
 - [blocks_repack_bits_bb_0, '0', digital_crc32_bb_0, '0']
 - [blocks_repack_bits_bb_1, '0', blocks_file_sink_0_0_0, '0']
@@ -2229,8 +2381,7 @@ connections:
 - [blocks_tagged_stream_mux_0, '0', blocks_file_sink_0_0_0_0_0, '0']
 - [blocks_tagged_stream_mux_0, '0', digital_ofdm_carrier_allocator_cvc_0, '0']
 - [blocks_throttle_0, '0', channels_channel_model_0, '0']
-- [blocks_throttle_0, '0', qtgui_freq_sink_x_0_0, '0']
-- [blocks_throttle_0, '0', uhd_usrp_sink_1, '0']
+- [blocks_vector_to_stream_0, '0', blocks_file_sink_0_0_0_0_0_0_0, '0']
 - [channels_channel_model_0, '0', blocks_delay_0, '0']
 - [channels_channel_model_0, '0', digital_ofdm_sync_sc_cfb_0, '0']
 - [channels_channel_model_0, '0', qtgui_freq_sink_x_0, '0']
@@ -2246,6 +2397,7 @@ connections:
 - [digital_crc32_bb_1, '0', blocks_repack_bits_bb_1, '0']
 - [digital_crc32_bb_1, '0', digital_protocol_formatter_bb_0, '0']
 - [digital_header_payload_demux_0, '0', virtual_sink_0, '0']
+- [digital_header_payload_demux_0, '1', blocks_vector_to_stream_0, '0']
 - [digital_header_payload_demux_0, '1', virtual_sink_1, '0']
 - [digital_ofdm_carrier_allocator_cvc_0, '0', fft_vxx_2, '0']
 - [digital_ofdm_chanest_vcvc_0, '0', digital_ofdm_frame_equalizer_vcvc_0, '0']
